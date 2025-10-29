@@ -4,7 +4,7 @@ library(igraph)
 library(qgraph)
 library(phangorn)
 
-setwd("G:\\Data_2022-08-14\\Metagenomic_analysis\\Анализ_ампликонов_Михайлов\\Сезонная_динамика_new\\Скрипты_данные_для_Githab\\Networks based on genetic distance clusters")
+setwd("G:\\Networks based on genetic distance clusters")
 
 #reading and preparing data
 data<-read.table("16S_top_90_ASV.txt",header=TRUE,sep="\t") #16S_top_90_ASV.txt - for bacteria, 18S_top_90_ASV.txt - for microeukaryotes
@@ -131,4 +131,5 @@ n_poz<-rowSums(abs(DPOS))
 
 #visualization of a table with graph characteristics - with relationships
 data.frame(var=lab, betweenness=round(betweenness(net, normalized=T), digits=3), nsv=nsv, n_poz=n_poz, n_neg=n_neg)
+
 
