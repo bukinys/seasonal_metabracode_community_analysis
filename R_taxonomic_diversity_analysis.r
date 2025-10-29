@@ -1,7 +1,7 @@
 
 library(vegan)
 
-setwd("G:\\Data_2022-08-14\\Metagenomic_analysis\\Анализ_ампликонов_Михайлов\\Сезонная_динамика_new\\Скрипты_данные_для_Githab\\Таксономичское_разнообразие")
+setwd("G:\\Taxonomic_diversity")
 
 #reading the genotype counte table
 data<-read.csv("ASV_16S.txt", header=TRUE, sep="\t", check.names = FALSE)
@@ -24,4 +24,5 @@ diversiti<-cbind(sample_id=rownames(diversiti), reads_number=rowSums(d_f),divers
 diversiti<-as.data.frame(diversiti)
 
 diversiti #visualization of a table with taxonomic diversity indicators
+
 
