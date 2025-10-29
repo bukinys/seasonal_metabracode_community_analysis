@@ -92,12 +92,12 @@ for(i in 1:nrow(ASV_clr))
      R=cor.test(ASV_clr[i,], ASV_clr[j,], method ="spearman")
      DD[i,j]=R$estimate
 	 DP[i,j]<-p.adjust(R$p.value, method="BH", n=nrow(ASV_clr))
-	 if(DP[i,j]>0.05) DD[i,j]=0
+	 if(sqrt(DD[i,j]^2)<=0.53) DD[i,j]=0
      if(i==j) DD[i,j]=1
     }
  }
 
-#writing the distance matrix for a cluster to disk
+#writing the matrix of pairwise correlation for the cluster to disk
 write.table(cbind(ASV_id=rownames(DD), DD), paste0("cor_matrix_10%_cluster_", nk, ".tsv"), quote=F, sep="\t", row.names=F)
 
 
@@ -131,5 +131,6 @@ n_poz<-rowSums(abs(DPOS))
 
 #visualization of a table with graph characteristics - with relationships
 data.frame(var=lab, betweenness=round(betweenness(net, normalized=T), digits=3), nsv=nsv, n_poz=n_poz, n_neg=n_neg)
+
 
 
