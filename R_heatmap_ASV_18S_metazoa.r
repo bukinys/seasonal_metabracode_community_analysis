@@ -2,7 +2,7 @@ library(vegan)
 library(pheatmap)
 
 
-setwd("C:\\Users\\User\\Desktop\\ivan1\\Season\\Revision\\heatmap\\Визуализация метазоа")
+setwd("C:\\Heat map")
 
 #Heat map with clustering of samples and ASV representation based on Bray-Curtis distances
 #loading a table with environment variables
@@ -85,4 +85,5 @@ annoCol=list(Taxa=Taxa, Seasonal=Seasonal, Basin=Basin)
 #building a heatmap
 pheatmap(Resp_norm, cluster_rows=tree_row, cluster_cols=tree_col, fontsize=5, 
  annotation_row=Expl_row, annotation_col=Expl, annotation_colors=annoCol, cutree_rows=1, cutree_cols=1)
+
 
